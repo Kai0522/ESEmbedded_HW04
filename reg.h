@@ -1,6 +1,10 @@
 #ifndef REG_H
 #define REG_H
-
+//Defign syntax
+#define OUTPUT 1
+#define INPUT 0
+#define HIGH 1
+#define LOW 0
 //REG OPERATIONS
 
 #define UINT32_1 ((uint32_t)1)
@@ -9,8 +13,7 @@
 
 #define SET_BIT(addr, bit) (REG(addr) |= UINT32_1 << (bit))
 #define CLEAR_BIT(addr, bit) (REG(addr) &= ~(UINT32_1 << (bit)))
-
-// #define READ_BIT(addr, bit) ??????
+#define READ_BIT(addr,bit) (((UINT32_1<<(bit))&REG(addr))^(UINT32_1<<(bit)))
 
 //RCC
 #define RCC_BASE 0x40023800
@@ -23,6 +26,13 @@
 #define GPIO_PORTB 1
 #define GPIO_PORTC 2
 #define GPIO_PORTD 3
+#define GPIO_PORTE 4
+#define GPIO_PORTF 5
+#define GPIO_PORTG 6
+#define GPIO_PORTH 7
+#define GPIO_PORTI 8
+#define GPIO_PORTJ 9
+#define GPIO_PORTK 10
 
 #define GPIO_BASE(port) (0x40020000 + 0x400 * (port))
 
@@ -44,5 +54,7 @@
 #define GPIOx_BSRR_OFFSET 0x18
 #define BRy_BIT(y) ((y) + 16)
 #define BSy_BIT(y) (y)
+
+#define GPIOx_IDR_OFFSET 0x10
 
 #endif
