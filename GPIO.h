@@ -4,5 +4,5 @@
 void pinMode(unsigned int port , unsigned int pin ,unsigned mode);
 void digitalWrite(unsigned int port , unsigned int pin , unsigned int mode);
 int digitalRead(unsigned int port , unsigned int pin);
-
+void delay();
 #endif

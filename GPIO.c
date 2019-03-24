@@ -48,3 +48,5 @@ int digitalRead(unsigned int port,unsigned int pin){
     else
         return 0;
 }
+
+void delay(){for(int i=0;i<100000;i++);}
